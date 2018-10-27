@@ -25,7 +25,7 @@ int eval(char str[])
                     break;
             case '-': rval=pop();
                     lval=pop();
-                    val=rval-lval;
+                    val=lval-rval;//Be careful at this statement.
                     push(val);
                     break;
             case '*': rval=pop();
@@ -35,7 +35,7 @@ int eval(char str[])
                     break;
             case '/': rval=pop();
                     lval=pop();
-                    val=rval/lval;
+                    val=lval/rval;//Be careful at this statement
                     push(val);
                     break;
 
