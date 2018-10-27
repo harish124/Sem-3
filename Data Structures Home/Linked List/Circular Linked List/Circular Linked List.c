@@ -240,7 +240,7 @@ int main()
     int ch=0;
     while(1==1)
     {
-        printf("\nPress:\n1:To create\n2:To ins. at beg\n3:To display\n4:To ins. at the end\n5:To ins. after a given node\n6:To del. beg\n7:To del. end\n8:To del. after a given node\n9:To del. the entire list\n");
+        printf("\nPress:\n1:To create\n2:To ins. at beg\n3:To display\n4:To ins. at the end\n5:To ins. after a given node\n6:To del. beg\n7:To del. end\n8:To del. after a given node\n9:To del. the entire list\nAnyother no. to exit\n");
         scanf("%d",&ch);
 
         switch(ch)
@@ -273,8 +273,7 @@ int main()
             case 9:hd=delList(hd);
             break;
 
-            case 10:hd=sortList(hd);
-            break;
+            
 
             default:exit(0);
         }
