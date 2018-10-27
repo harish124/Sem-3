@@ -9,7 +9,8 @@ typedef struct poly
 }node;
 node *genPoly1(node *poly1,int n,int poly_name)
 {
-    printf("\nEnter the details of poly 1:\n");
+    if(poly_name!=3)
+         printf("\nEnter the details of poly 1:\n");
     while(n>0)
     {
         node *new_node=(node *)malloc(sizeof(node));
@@ -43,7 +44,8 @@ node *genPoly1(node *poly1,int n,int poly_name)
 }
 node *genPoly2(node *poly2,int n,int poly_name)
 {
-    printf("\nEnter the details of poly 2:\n");
+    if(poly_name!=3)
+         printf("\nEnter the details of poly 2:\n");
     while(n>0)
     {
         node *new_node=(node *)malloc(sizeof(node));
