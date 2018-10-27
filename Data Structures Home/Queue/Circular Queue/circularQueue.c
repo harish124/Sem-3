@@ -32,7 +32,7 @@ void dequeue(int q[])
         int elm=q[front];
         if(front==rear)
         {
-
+            //One element case
             front=rear=-1;
         }
         else
