@@ -23,7 +23,7 @@ void insert(int val)
     else
     {
         for(int i=(key+1)%10;i!=key;i=(i+1)%10)    //The increment formula used here is the same as the one used in circular queue.
-        {
+        {                                          //Note i= (key+1)%10 is used because if key = 9 then ht[9+1] does not exist.
             if(ht[i]==-1)
             {
                 ht[i]=val;
@@ -90,7 +90,7 @@ void deleteVal(int val)
         }
         else
         {
-            for(int i=(key+1)%10;i!=key;i=(i+1)%10)
+            for(int i=(key+1)%10;i!=key;i=(i+1)%10)     //Note i= (key+1)%10 is used because if key = 9 then ht[9+1] does not exist.
             {
                 if(ht[i]==val)
                 {
