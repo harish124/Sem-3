@@ -3,21 +3,22 @@
 #include "QueueOperations.h"
 int size=0;
 
-void bfs(int mat[][size],int start)
+void bfs(int mat[4][4],int start)
 {
-    int visited[size];
+    int visited[10]={0};
     visited[start]=1;
     int temp=start;
-    enqueue(temp);
+    enqueue(start);
+    int done=1;
 
-    while(front<=rear)
+    while(front!=-1 && front<=rear)
     {
         for(int i=0;i<size;i++)
         {
             if(mat[temp][i]==1 && visited[i]!=1)
             {
-                visited[i]=1;
                 enqueue(i);
+                visited[i]=1;
 
             }
         }
@@ -25,85 +26,45 @@ void bfs(int mat[][size],int start)
         printf("%c ",dequeue()+65);
         temp=q[front];
     }
-
-}
-void displayMat(int mat[][size])
-{
-    for(int i=0;i<size;i++)
-    {
-        printf("\n");
-        for(int j= 0;j<size;j++)
-        {
-            printf("mat[%d][%d] = %d\t",i,j,mat[i][j]);
-        }
-    }
 }
 int main()
 {
+
     printf("\nEnter the no. of vertices: ");
     scanf("%d",&size);
-
+    int count = 0;
     //Make the adjacency matrix
-    int i=65,temp=i;
+    char c='A';
     int mat[size][size];
+    //int mat1[4][4]={{0,1,1,0},{0,0,1,0},{1,0,0,1},{0,0,0,1}};  //Test case : Answer for this is CADB
     printf("Press:\n1:If there is an edge:\n2:If there is no edge:\nAny other no. will be considered as no edge\n");
-    for(i=65;i<temp+size;i++)
+    for(i=0;i<size;i++)
     {
-        for(int j=65;j<temp+size;j++)
+        for(int j=0;j<size;j++)
         {
 
-            printf("%c -> %c\n",i,j);
-            scanf("%d",&mat[i-65][j-65]);
+            printf("%c -> %c\n",c+i,c+j);
+            scanf("%d",&mat[i][j]);
         }
     }
 
     //set qSize in header file to size
     qSize=size;
-    printf("\nEnter any character to start from: ");
-    char ch;
-    scanf(" %c",&ch);
-    //printf("\nDisplaying matrix below: \n");
-    //displayMat(mat);
-    int start=0;
-    switch(ch)
+    printf("\nPress any number to start from that particular character: \n");
+    for(char ch='A',count=0;ch<=65+size-1;ch++,count++)
     {
-        case 'a':start=0;
-        break;
-
-        case 'b':start=1;
-        break;
-
-        case 'c':start=2;
-        break;
-
-        case 'd':start=3;
-        break;
-
-        case 'e':start=4;
-        break;
-
-        case 'f':start=5;
-        break;
-
-        case 'g':start=6;
-        break;
-
-        case 'h':start=7;
-        break;
-
-        case 'i':start=8;
-        break;
-
-        case 'j':start=9;
-        break;
-
-        case 'k':start=10;
-        break;
-
-        //Note: Add more alphabets if you have more nodes/vertices
-        default:printf("\nStart set to 0 by default\n");
-        break;
-
+        printf("%d --> %c\n",count,ch);
     }
-    bfs(mat,start);
+    int start=0;
+    scanf("%d",&start);
+
+    if(start>=0 && start<=size-1)
+    {
+        bfs(mat1,start);
+    }
+    else
+    {
+        printf("\nInvalid Start Index\n");
+        exit(0);
+    }
 }
